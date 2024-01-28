@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-group-x {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+input[type=submit], input[type=button] {
+  transition: 0.1s;
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  outline: none;
+  color: #e3f8ff;
+  background-color: #4180ff;
+  border-radius: 5px;
+  font-size: larger;
+  padding: 0.5em 1.5em;
+  position: relative;
+  box-shadow: #70565644 0px 3px 3px 1px;
+}
+
+input[type=submit]:hover, input[type=button]:hover {
+  background-color: #4490ff;
+}
+
+.underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff79d7;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@keyframes grow-fade-out {
+  100% {
+    transform: scale(1.5, 1.5);
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.heart {
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  z-index: 0;
+  animation-name: grow-fade-out;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+.heart::before, .heart::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 52px;
+  height: 80px;
+  border-radius: 50px 50px 0 0;
+  background: red;
+}
+
+.heart::before {
+  left: 50px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
