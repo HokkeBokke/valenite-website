@@ -587,9 +587,9 @@ video {
   border-radius: 0.25rem;
 }
 
-.bg-pink-500 {
+.bg-pink-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+  background-color: rgb(244 114 182 / var(--tw-bg-opacity));
 }
 
 .bg-pink-900 {

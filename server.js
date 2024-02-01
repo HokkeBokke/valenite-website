@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 
 const app = express();
-const __dirname = "C:/Users/Håkon/Documents/Programmering/valentine";
+const __dirname = "C:/Users/Haako/Documents/Coding/valenite-website";
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -58,7 +58,7 @@ app.get('/*.*', (req, res) => {
 })
 
 app.post('/response', (req, res) => {
-  let ip = req.socket.address().address;
+  let ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
   let response = req.body.answer;
   fs.appendFile('./responses.txt', response + " from " + ip + '\n', (err) => {
     if (err) console.log("Could not append to responses.txt");
@@ -68,4 +68,4 @@ app.post('/response', (req, res) => {
   res.redirect('/ring-meg');
 })
 
-app.listen(9000, () => console.log("Server listening on port 9000"));
+app.listen(80, () => console.log("Server listening on port 80"));
